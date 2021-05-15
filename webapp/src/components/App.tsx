@@ -1,8 +1,14 @@
 import { VFC } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from 'react-router-dom'
 import { CssBaseline } from '@material-ui/core'
 import { Home } from './Home/index'
 import { Header } from './Header/index'
+import { Profile } from './Profile/index'
 
 export const App: VFC = () => {
   return <>
@@ -11,6 +17,8 @@ export const App: VFC = () => {
 			<Header />
 			<Switch>
 				<Route exact path="/" children={<Home />}/>
+				<Route exact path="/@" children={<Redirect to='/' />}/>
+				<Route exact path="/@:id" children={<Profile />}/>
 			</Switch>
 		</Router>
   </>
