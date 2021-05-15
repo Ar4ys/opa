@@ -1,6 +1,7 @@
 import { Sequelize, Model, ModelCtor, BuildOptions } from 'sequelize'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
+import { UserFactory } from './User';
 
 export interface ModelStatic<M extends Model = Model> extends ModelCtor<M> {
   new(values?: M['_creationAttributes'], options?: BuildOptions): M
@@ -19,7 +20,9 @@ const sequelize = new Sequelize('sqlite:' + dbPath, {
   logging: false
 })
 
-export const Models: Record<string, ModelStatic> = {}
+export const Models: Record<string, ModelStatic> = {
+  User: UserFactory(sequelize)
+}
 
 for (const model of Object.values(Models))
   model.associate?.(Models)
