@@ -9,9 +9,9 @@ import {
   CardActionArea
 } from '@material-ui/core'
 import {
-  FavoriteBorder as FavoriteIcon,
-  CommentOutlined as CommentIcon,
-  SendRounded as SendIcon,
+  // FavoriteBorder as FavoriteIcon,
+  // CommentOutlined as CommentIcon,
+  // SendRounded as SendIcon,
   Share as ShareIcon
 } from '@material-ui/icons'
 
